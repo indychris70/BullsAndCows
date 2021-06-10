@@ -1,16 +1,16 @@
 package bullscows;
 
-public class Grader {
+public class Game {
     private final String code;
     private int cows;
     private int bulls;
     private String result;
 
-    Grader(String code) {
+    Game(String code) {
         this.code = code;
     }
 
-    public boolean gameOver() {
+    public boolean isOver() {
         return bulls == code.length();
     }
 

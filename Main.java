@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     private enum Messages {
-        START_GAME("Okay, let's start a game!"),
+        START_GAME("Hello Professor. Would you like to play a game?"),
         GAME_WON("Congratulations! You guessed the secret code."),
         TURN_NUMBER("Turn %s:"),
         ERROR("Error");
@@ -24,16 +24,16 @@ public class Main {
         int codeLength = scanner.nextInt();
         if (codeLength <= 10) {
             Code secretCode = new Code(codeLength);
-            Grader grader = new Grader(secretCode.getValue());
+            Game game = new Game(secretCode.getValue());
             int turn = 1;
 
             Messages.START_GAME.print();
             do {
                 Messages.TURN_NUMBER.print(Integer.toString(turn));
-                grader.submitGuess(scanner.nextLine());
-                grader.printResult();
+                game.submitGuess(scanner.nextLine());
+                game.printResult();
                 turn++;
-            } while (!grader.gameOver());
+            } while (!game.isOver());
             Messages.GAME_WON.print();
         } else {
             Messages.ERROR.print();
