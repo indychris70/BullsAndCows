@@ -10,7 +10,7 @@ public class Game {
         this.code = code;
     }
 
-    public boolean isOver() {
+    public boolean isWon() {
         return bulls == code.length();
     }
 

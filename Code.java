@@ -3,16 +3,20 @@ package bullscows;
 import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Arrays;
 
 public class Code {
     private String value;
     private String description;
     private String validCodeCharacters = "0123456789abcdefghijklmnopqrstuvwxyz";
+    private static final int MAX_CODE_LENGTH = 36;
 
     Code(int requiredLength, int requiredNumberOfCharacters) {
         value = generateCode(requiredLength, requiredNumberOfCharacters);
         description = generateCodeDescription(requiredLength, requiredNumberOfCharacters);
+    }
+
+    public static int getMaxCodeLength() {
+        return MAX_CODE_LENGTH;
     }
 
     public String getValue() {
